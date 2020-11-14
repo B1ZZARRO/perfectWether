@@ -1,10 +1,10 @@
 package com.example.perfectweather.ui.home
 
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.perfectweather.R
@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
+    lateinit var anim: AnimationDrawable
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,30 +41,35 @@ class HomeFragment : Fragment() {
         var Temp = 0
         var FeelsLike = 0
         GlobalScope.launch(Dispatchers.Main) {
-            val UrlModel = apiService.getCurrentWeather("Санкт-Петербург").await()
+            val UrlModel = apiService.getCurrentWeather("Москва").await()
             Temp = UrlModel.main.temp.toInt()-273
             FeelsLike = UrlModel.main.feels_like.toInt()-273
             textChosenCity.text = UrlModel.name
             textTemp.text = "\n" + Temp.toString() + "°C"
-            textInfo.text = "\nОщущается как: " + FeelsLike.toString() + "°C" + "\nСкорость ветра: " + UrlModel.wind.speed.toString() + "м/с" + "\nВлажность: " + UrlModel.main.humidity.toString() + "%" + "\n"
+            textInfo.text = "\nОщущается как: " + FeelsLike.toString() + "°C" + "\nСкорость ветра: " + UrlModel.wind.speed.toString() + "м/с" + "\nВлажность: " + UrlModel.main.humidity.toString() + "%"
             if (UrlModel.weather[0].main == "Snow"){
-                imageView.setImageResource(R.drawable.snow)
+                imageView.setBackgroundResource(R.drawable.anim_snow)
+                (imageView.background as AnimationDrawable).start()
                 textStatus.text = "Снег"
             }
             if (UrlModel.weather[0].main == "Rain"){
-                imageView.setImageResource(R.drawable.rain)
+                imageView.setBackgroundResource(R.drawable.anim_rain)
+                (imageView.background as AnimationDrawable).start()
                 textStatus.text = "Дождь"
             }
             if (UrlModel.weather[0].main == "Clear"){
-                imageView.setImageResource(R.drawable.clear)
+                imageView.setBackgroundResource(R.drawable.anim_clear)
+                (imageView.background as AnimationDrawable).start()
                 textStatus.text = "Ясно"
             }
             if (UrlModel.weather[0].main == "Clouds"){
-                imageView.setImageResource(R.drawable.clouds)
+                imageView.setBackgroundResource(R.drawable.anim_cloud)
+                (imageView.background as AnimationDrawable).start()
                 textStatus.text = "Облачно"
             }
             if (UrlModel.weather[0].main == "Mist"){
-                imageView.setImageResource(R.drawable.mist)
+                imageView.setBackgroundResource(R.drawable.anim_mist)
+                (imageView.background as AnimationDrawable).start()
                 textStatus.text = "Туман"
             }
             /*if (UrlModel.weather.component1().main == ""){

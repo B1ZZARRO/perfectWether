@@ -9,6 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.perfectweather.R
+import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class DashboardFragment : Fragment() {
 
@@ -28,4 +32,20 @@ class DashboardFragment : Fragment() {
         //})
         return root
     }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        GlobalScope.launch(Dispatchers.Main){
+
+            button.setOnClickListener{
+                val mdf = DialogFragment1()
+                val manager = activity?.supportFragmentManager
+                if (manager != null) {
+                    mdf.show(manager, "myDialog")
+                }
+            }
+
+        }
+    }
+
 }
