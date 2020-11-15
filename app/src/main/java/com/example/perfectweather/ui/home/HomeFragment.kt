@@ -70,6 +70,10 @@ class HomeFragment : Fragment() {
                 (parent.getChildAt(0) as TextView).setTextColor(Color.BLACK)
                 (parent.getChildAt(0) as TextView).textSize = 20f
                 textStatus.text = "Загрузка..."
+                textAdvice.text = ""
+                textInfo.text = ""
+                textTemp.text = ""
+                imageView.setBackgroundColor(Color.parseColor("#FAFAFA"))
                 val city : String = parent.getItemAtPosition(position).toString()
                 editor.putInt(MainActivity().SELECT_CITY, position)
                 editor.apply()
