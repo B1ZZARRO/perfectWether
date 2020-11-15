@@ -89,7 +89,7 @@ class HomeFragment : Fragment() {
             if(Temp <= 0){
                 textAdvice.text = "Оденьтесь потеплее"
             }
-            if(Temp <= 0 && Temp <= 15){
+            if(Temp >= 0 && Temp <= 15){
                 textAdvice.text = "Не слишком холожно и не слишком жарко"
             }
             /*if (UrlModel.weather.component1().main == ""){

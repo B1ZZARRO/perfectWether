@@ -29,6 +29,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildTypes.each{
+        it.buildConfigField("String","API_KEY",API_KEY)
+    }
 }
 
 dependencies {
