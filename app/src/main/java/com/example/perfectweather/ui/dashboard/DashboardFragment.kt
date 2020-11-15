@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -16,35 +17,60 @@ import kotlinx.coroutines.launch
 
 class DashboardFragment : Fragment() {
 
+    val cityName = arrayOf(
+        "Не выбрано",
+        "Астрахань",
+        "Архангельск",
+        "Барнаул",
+        "Белгород",
+        "Владивосток",
+        "Воронеж",
+        "Иркутск",
+        "Казань",
+        "Калининград",
+        "Калуга",
+        "Красногорск",
+        "Краснодар",
+        "Липецк",
+        "Минск",
+        "Москва",
+        "Мурманск",
+        "Нижний Новгород",
+        "Новосибирск",
+        "Омск",
+        "Пермь",
+        "Подольск",
+        "Ростов на Дону",
+        "Самара",
+        "Санкт-Петербург",
+        "Сочи",
+        "Томск",
+        "Уфа",
+        "Хабаровск",
+        "Челябинск",
+        "Якутск"
+    )
+
     private lateinit var dashboardViewModel: DashboardViewModel
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel::class.java)
+            ViewModelProviders.of(this).get(DashboardViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        //val textView: TextView = root.findViewById(R.id.text_dashboard)
-        //dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-            //textView.text = it
-        //})
         return root
     }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        GlobalScope.launch(Dispatchers.Main){
-
-            button.setOnClickListener{
-                val mdf = DialogFragment1()
-                val manager = activity?.supportFragmentManager
-                if (manager != null) {
-                    mdf.show(manager, "myDialog")
-                }
+            val mdf = Dialog()
+            val manager = activity?.supportFragmentManager
+            if (manager != null) {
+                mdf.show(manager, "myDialog")
             }
-        }
     }
-
 }

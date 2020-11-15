@@ -6,20 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/textChosenCity"
+    <Spinner
+        android:id="@+id/FavoriteCities"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:spinnerMode="dialog"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.011" />
-
+        app:layout_constraintVertical_bias="0.022" />
 
     <TextView
         android:id="@+id/textTemp"

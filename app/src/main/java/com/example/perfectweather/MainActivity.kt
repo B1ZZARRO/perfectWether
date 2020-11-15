@@ -10,6 +10,12 @@ import androidx.navigation.ui.setupWithNavController
 
 class MainActivity : AppCompatActivity() {
 
+    val SELECT_CITY = "select_city"
+    var PRIVATE_MODE = 0
+    val PREF_NAME = "mindorks-welcome"
+    val FAVORITES_SIZE = "favorites_size"
+    val FAVORITES_ = "favorites_"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,3 +30,4 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 }
+
