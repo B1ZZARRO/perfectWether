@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
         var Temp = 0
         var FeelsLike = 0
         GlobalScope.launch(Dispatchers.Main) {
-            val UrlModel = apiService.getCurrentWeather("Челябинск").await()
+            val UrlModel = apiService.getCurrentWeather("Ватутинки").await()
             Temp = UrlModel.main.temp.toInt()-273
             FeelsLike = UrlModel.main.feels_like.toInt()-273
             textChosenCity.text = UrlModel.name
@@ -90,7 +90,7 @@ class HomeFragment : Fragment() {
                 textAdvice.text = "Оденьтесь потеплее"
             }
             if(Temp >= 0 && Temp <= 15){
-                textAdvice.text = "Не слишком холожно и не слишком жарко"
+                textAdvice.text = "Не слишком холодно и не слишком жарко"
             }
             /*if (UrlModel.weather.component1().main == ""){
                 imageView.setImageResource(R.drawable.minirain)

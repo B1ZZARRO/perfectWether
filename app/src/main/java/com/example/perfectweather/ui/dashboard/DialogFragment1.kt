@@ -9,7 +9,6 @@ import androidx.fragment.app.DialogFragment
 
 class DialogFragment1 : DialogFragment() {
 
-    var st: String = ""
     private val cityName = arrayOf("Москва", "Санкт-Петербург", "Екатеринбург", "Сызрань", "Рязань", "Тула", "Подольск", "Балашиха", "Мытищи", "Королев", "Долгопрудный", "Химки", "Красногорск", "Одинцово", "Троицк")
     //private val checkItems = booleanArrayOf(false, false, false)
     //val cityName = resources.getStringArray(R.array.ArrayCity)
