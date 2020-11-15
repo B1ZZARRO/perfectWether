@@ -44,7 +44,6 @@ class DashboardFragment : Fragment() {
                     mdf.show(manager, "myDialog")
                 }
             }
-
         }
     }
 

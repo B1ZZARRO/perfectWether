@@ -31,10 +31,10 @@ class DialogFragment1 : DialogFragment() {
                         val checked = checkItems[i]
                         if(checked){
                             Log.i("Dialog", cityName[i])
-//st+=cityName[i]+" "
+                            //st+=cityName[i]+" "
                         }
                     }
-////////////////////
+                    ////////////////////
                 }
                 .setNegativeButton("Отмена"){
                         dialog, _ -> dialog.cancel()
